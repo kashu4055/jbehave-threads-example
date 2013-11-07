@@ -29,10 +29,22 @@ public class ThreadsStories extends JUnitStories {
 
 
     public ThreadsStories() {
+        // provide the configuration for running tests from IDE
+        // Define # of threads
+        // and default story timeout
         Embedder embedder = configuredEmbedder();
-        embedder.embedderControls().doGenerateViewAfterStories(true).doIgnoreFailureInStories(true)
-                .doIgnoreFailureInView(true).doVerboseFiltering(true).useThreads(2).useStoryTimeoutInSecs(2);
-        embedder.useMetaFilters(Arrays.asList("groovy: story_path ==~ /.*long.*/"));
+        embedder
+                .embedderControls()
+                .doGenerateViewAfterStories(true)
+                .doIgnoreFailureInStories(true)
+                .doIgnoreFailureInView(true)
+                .doVerboseFiltering(true)
+                .useThreads(1)              // SET THE NUMBER OF THREADS HERE WHEN RUNNING FROM IDE
+                .useStoryTimeoutInSecs(60);
+
+        // Exclude stories by applying a name filter
+        //embedder.useMetaFilters(Arrays.asList("groovy: story_path ==~ /.*long.*/"));
+
     }
 
     @Override
@@ -42,7 +54,11 @@ public class ThreadsStories extends JUnitStories {
         viewResources.put("decorateNonHtml", "false");
 
         return new MostUsefulConfiguration().useStoryLoader(new LoadFromClasspath(embeddableClass))
-                .useStoryControls(new StoryControls().useStoryMetaPrefix("story_").useScenarioMetaPrefix("scenario_")) // optional prefixes
+                .useStoryControls(
+                        new StoryControls()
+                                .useStoryMetaPrefix("story_")
+                                .useScenarioMetaPrefix("scenario_")
+                                ) // optional prefixes
                 .useStoryReporterBuilder(
                         new StoryReporterBuilder()
                                 .withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass))

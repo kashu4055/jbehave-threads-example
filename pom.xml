@@ -11,6 +11,9 @@
         <ignore.failure.in.stories>true</ignore.failure.in.stories>
         <ignore.failure.in.view>false</ignore.failure.in.view>
         <meta.filter></meta.filter>
+        <!--
+            SET THE NUMBER OF THREADS HERE WHEN RUNNING FROM CLI
+        -->
         <threads>1</threads>
         <story.timeout.in.secs>60</story.timeout.in.secs>
         <jbehave-core.project.version>4.0-beta-3</jbehave-core.project.version>
@@ -23,11 +26,6 @@
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
             <version>${jbehave-core.project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>1.8.4</version>
         </dependency>
         <dependency>
             <groupId>org.jbehave.site</groupId>

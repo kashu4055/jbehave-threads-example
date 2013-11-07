@@ -10,3 +10,4 @@ Examples:
 |	name 	| 	number	|
 |	John 	|		2	|
 | 	Maria	|		5	|
+| 	Patric	|		0	|
