@@ -1,13 +1,11 @@
 .DS_Store
 *.out
-*.jtl
 *.log
 *.tmp
 *.swp
 *.zip
-*.png
 *.html
-*.iml
+#*.iml
 .idea
 0
 
